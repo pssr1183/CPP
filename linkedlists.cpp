@@ -5,9 +5,10 @@ class node{
   int data;
   node *next;
 };
-node *head,*newnode,*temp;
+node *head,*newnode,*temp,*temp1,*temp2;
 void insertBeg();
-void Delete();
+void DeleteBeg();
+void DeleteEnd();
 void display();
 void insertEnd();
 void insertBeg(){
@@ -38,6 +39,27 @@ void insertEnd(){
     }
 
 }
+
+void DeleteBeg(){
+    if(head==NULL) cout<<"List is Empty\n";
+    else{
+    temp=head;
+    head=head->next;
+    cout<<"Deleted\n";
+}
+}
+void DeleteEnd(){
+    if(head==NULL) cout<<"List is Empty\n";
+    else{
+ temp1=head;
+ while(temp1->next!=NULL){
+     temp2=temp1;
+     temp1=temp1->next;
+ }
+ temp2->next=NULL;
+ cout<<"Deleted\n";
+ }
+}
 void display(){
     temp=head;
     while(temp->next){
@@ -45,14 +67,11 @@ void display(){
         temp =temp->next;
     }cout<<temp->data<<"\n";
 }
-void Delete (){
-    head=head->next;
-    cout<<"Deleted\n";
-}
+
 int main(){
     int s;
     while(1){
-        cout<<"1.InsertBeg\n2.InsertEnd\n3.Delete\n4.display\n5.exit\n";
+        cout<<"1.InsertBeg\n2.InsertEnd\n3.DeleteBeg\n4.DeleteEnd\n5.display\n6.exit\n";
         cin>>s;
         switch(s){
             case 1:
@@ -60,10 +79,12 @@ int main(){
             case 2:
             insertEnd(); break;
             case 3:
-            Delete(); break;
+            DeleteBeg(); break;
             case 4:
-            display(); break;
+            DeleteEnd(); break;
             case 5:
+            display(); break;
+            case 6:
             exit(0); break;
         }
 
