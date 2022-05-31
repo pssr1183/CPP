@@ -6,10 +6,11 @@ class node{
   node *next;
 };
 node *head,*newnode,*temp;
-void insert();
+void insertBeg();
 void Delete();
 void display();
-void insert(){
+void insertEnd();
+void insertBeg(){
     int data;
     cin>>data;
     newnode= new node();
@@ -22,6 +23,20 @@ void insert(){
             head=newnode;
             
         }
+}
+void insertEnd(){
+    newnode= new node();
+    int data;
+    cin>>data;
+    newnode->data=data;
+    if(head==NULL) {newnode->next=NULL;
+    head = newnode;}
+    else{
+        while(temp->next!=NULL) temp=temp->next;
+        temp->next=newnode;
+        newnode->next=NULL;
+    }
+
 }
 void display(){
     temp=head;
@@ -37,16 +52,18 @@ void Delete (){
 int main(){
     int s;
     while(1){
-        cout<<"1.Insert\n2.Delete\n3.display\n4.exit\n";
+        cout<<"1.InsertBeg\n2.InsertEnd\n3.Delete\n4.display\n5.exit\n";
         cin>>s;
         switch(s){
             case 1:
-            insert(); break;
+            insertBeg(); break;
             case 2:
-            Delete(); break;
+            insertEnd(); break;
             case 3:
-            display(); break;
+            Delete(); break;
             case 4:
+            display(); break;
+            case 5:
             exit(0); break;
         }
 
