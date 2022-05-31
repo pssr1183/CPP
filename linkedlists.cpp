@@ -14,18 +14,25 @@ void insert(){
     cin>>data;
     newnode= new node();
     newnode->data=data;
+    if(head==NULL){
     newnode->next=NULL;
-    head=newnode;
+        head=newnode;}
+        else{
+            newnode->next=head;
+            head=newnode;
+            
+        }
 }
 void display(){
     temp=head;
-    while(temp->next!=NULL){
-        cout<<temp->data<<" ";
+    while(temp->next){
+        cout<<temp->data<<"->";
         temp =temp->next;
-    }
+    }cout<<temp->data<<"\n";
 }
 void Delete (){
-    cout<<"Delete\n";
+    head=head->next;
+    cout<<"Deleted\n";
 }
 int main(){
     int s;
@@ -40,7 +47,7 @@ int main(){
             case 3:
             display(); break;
             case 4:
-            exit(o); break;
+            exit(0); break;
         }
 
     }
