@@ -7,10 +7,26 @@ class node{
 };
 node *head,*newnode,*temp,*temp1,*temp2;
 void insertBeg();
+void insertspecific();
 void DeleteBeg();
+void DeleteSpecific();
 void DeleteEnd();
 void display();
 void insertEnd();
+void insertspecific(){
+    int value,data;
+    cout<<"Enter the specific node\n";
+    cin>>value;
+    cout<<"Enter the node value\n";
+    cin>>data;
+    newnode = new node ();
+    newnode->data=data;
+    temp=head;
+    while(temp->data!=value) temp=temp->next;
+    newnode->next=temp->next;
+    temp->next=newnode;
+    
+}
 void insertBeg(){
     int data;
     cin>>data;
@@ -48,6 +64,17 @@ void DeleteBeg(){
     cout<<"Deleted\n";
 }
 }
+void DeleteSpecific(){
+    int value;
+    cout<<"Enter the node value\n";
+    cin>>value;
+    temp1=head;
+    while(temp1->data!=value){
+        temp2=temp1;
+        temp1=temp1->next;
+    }
+    temp2->next=temp1->next;
+}
 void DeleteEnd(){
     if(head==NULL) cout<<"List is Empty\n";
     else{
@@ -71,20 +98,24 @@ void display(){
 int main(){
     int s;
     while(1){
-        cout<<"1.InsertBeg\n2.InsertEnd\n3.DeleteBeg\n4.DeleteEnd\n5.display\n6.exit\n";
+        cout<<"1.InsertBeg\n2.InsertEnd\n3.Insert Specific \n4.DeleteBeg\n5.Delete Specific\n6.DeleteEnd\n7.display\n8.exit\n";
         cin>>s;
         switch(s){
             case 1:
             insertBeg(); break;
             case 2:
-            insertEnd(); break;
+            insertspecific(); break;
             case 3:
-            DeleteBeg(); break;
+            insertEnd(); break;
             case 4:
-            DeleteEnd(); break;
+            DeleteBeg(); break;
             case 5:
-            display(); break;
+            DeleteSpecific(); break;
             case 6:
+            DeleteEnd(); break;
+            case 7:
+            display(); break;
+            case 8:
             exit(0); break;
         }
 
