@@ -77,6 +77,9 @@ void DeleteSpecific(){
 }
 void DeleteEnd(){
     if(head==NULL) cout<<"List is Empty\n";
+    else if(head->next==NULL) {
+        head=NULL;
+        cout<<"Deleted\n";}
     else{
  temp1=head;
  while(temp1->next!=NULL){
@@ -88,11 +91,14 @@ void DeleteEnd(){
  }
 }
 void display(){
+    if(head==NULL) cout<<"List is empty\n";
+    else{
     temp=head;
     while(temp->next){
         cout<<temp->data<<"->";
         temp =temp->next;
     }cout<<temp->data<<"\n";
+}
 }
 
 int main(){
@@ -121,3 +127,5 @@ int main(){
 
     }
 }
+
+
