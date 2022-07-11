@@ -9,7 +9,7 @@ class Base{
         void fun1(){
             cout<<"Base class Function is called\n";
         }
-        int  setter(){
+        int  getter(){
             return data1;
         }
 };
@@ -26,7 +26,7 @@ class Derived1: public Base{
 };
 int main(){
     Base b1;
-    cout<<"The value of data1 is "<<b1.setter()<<endl;
+    cout<<"The value of data1 is "<<b1.getter()<<endl;
     b1.fun1();
     Derived1 d1;
     d1.fun1();
