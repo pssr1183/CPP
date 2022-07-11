@@ -21,7 +21,7 @@ class Base2{
             cin>>data4;
          }
          void fun1(){
-            cout<<"Base2 class overidden the function\n";
+            cout<<"Base2 class function is called\n";
          }
          void fun2(){
             cout<<"fun2 is called\n";
