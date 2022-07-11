@@ -49,6 +49,7 @@ void insertEnd(){
     if(head==NULL) {newnode->next=NULL;
     head = newnode;}
     else{
+        temp=head;
         while(temp->next!=NULL) temp=temp->next;
         temp->next=newnode;
         newnode->next=NULL;
@@ -109,9 +110,9 @@ int main(){
         switch(s){
             case 1:
             insertBeg(); break;
-            case 2:
-            insertspecific(); break;
             case 3:
+            insertspecific(); break;
+            case 2:
             insertEnd(); break;
             case 4:
             DeleteBeg(); break;
